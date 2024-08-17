@@ -3,6 +3,14 @@
 <head>
   <title>Click Counter</title>
   <style>
+    
+    progress::-webkit-progress-value {
+      margin-bottom: 150px;
+      background-color: aqua;
+      border-radius: 10px;
+    }
+
+    
     body {
       background-color: #0e0b18;
       font-family: Arial, sans-serif;
@@ -13,7 +21,7 @@
       height: 100vh;
     }
     button {
-
+      
       -webkit-tap-highlight-color: rgba(0,0,0,0);
 -webkit-tap-highlight-color: transparent;
       background-color: rgb(56, 56, 105);
@@ -34,29 +42,43 @@
       color: #6c8399;
       text-align: center;
       margin-top: 20px;
+    
     }
   </style>
 </head>
 <body>
+  <progress id="pr" value="0" max="50"></progress>
   <button id="click-me">😀</button>
   <div id="counter">0</div>
   <script>
     var count = 0;
+    var count1 = 0;
+    var pr = document.getElementById("pr")
     var button = document.getElementById("click-me");
     var counter = document.getElementById("counter");
     button.addEventListener("click", function() {
       count++;
+      count1++;
+      pr.value = count1;
       counter.innerHTML = count;
+      if (pr.value >= 50){
+        pr.value = 0;
+        count1 = 0
+      }
       if(count ==50){
+
         button.innerHTML = "😋"
       }
       if(count ==100){
+
         button.innerHTML = "😎"
       }
       if(count ==150){
+
         button.innerHTML = "🤑"
       }
       if(count ==200){
+
         button.innerHTML = "🤯"
       }
     });
