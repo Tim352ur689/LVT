@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html>
 <head>
   <title>Click Counter</title>
   <style>
     body {
-      background-color: #f2f2f2;
+      background-color: #0e0b18;
       font-family: Arial, sans-serif;
       display: flex;
       flex-direction: column;
@@ -14,9 +13,10 @@
       height: 100vh;
     }
     button {
+
       -webkit-tap-highlight-color: rgba(0,0,0,0);
 -webkit-tap-highlight-color: transparent;
-      background-color: blue;
+      background-color: rgb(56, 56, 105);
       border-radius:100px;
       width:200px;
       height:200px;
@@ -31,7 +31,7 @@
     }
     #counter {
       font-size: 48px;
-      color: #4CAF50;
+      color: #6c8399;
       text-align: center;
       margin-top: 20px;
     }
@@ -47,6 +47,18 @@
     button.addEventListener("click", function() {
       count++;
       counter.innerHTML = count;
+      if(count ==50){
+        button.innerHTML = "😋"
+      }
+      if(count ==100){
+        button.innerHTML = "😎"
+      }
+      if(count ==150){
+        button.innerHTML = "🤑"
+      }
+      if(count ==200){
+        button.innerHTML = "🤯"
+      }
     });
   </script>
 </body>
