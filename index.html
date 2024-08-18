@@ -26,7 +26,6 @@
       -webkit-tap-highlight-color: rgba(0,0,0,0);
       -webkit-tap-highlight-color: transparent;
       display: inline-block;
-      font-size: 100px;
       border: none;
       cursor: pointer;
       background-color: rgb(56, 56, 105);
@@ -62,6 +61,17 @@
       font-size: 20px;
       color:white;
     }
+    .push{
+        animation: touch 0.1s linear;
+    }
+    @keyframes touch{
+        50%{
+            font-size: 75px;
+        }
+        80%{
+            font-size: 100px;
+        }
+    }
   </style>
   <div>
     <button id = "plus">+1(150)</button>
@@ -87,6 +97,12 @@
       cn=cn+click;
       pr.value = count1;
       counter.innerHTML = cn;
+      if (button.classList != "push"){
+          button.classList.add("push")
+      }
+      setTimeout(function(){
+          button.classList.remove("push")
+      },300)
       if (pr.value >= 50){
         pr.value = 0;
         count1 = 0
@@ -132,4 +148,4 @@
     },1000)
   </script>
 </body>
-</html>
+</html
