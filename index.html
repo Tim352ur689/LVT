@@ -8,14 +8,11 @@
       margin-bottom: 150px;
       background-color: aqua;
       border-radius: 10px;
+
     }
 
     
     body {
-      -ms-user-select: none; 
-		-moz-user-select: none; 
-		-webkit-user-select: none; 
-		user-select: none;
       background-color: #0e0b18;
       font-family: Arial, sans-serif;
       display: flex;
@@ -24,17 +21,23 @@
       justify-content: center;
       height: 100vh;
     }
-    button {
-      
+    button{
+      text-align: center;
       -webkit-tap-highlight-color: rgba(0,0,0,0);
--webkit-tap-highlight-color: transparent;
+      -webkit-tap-highlight-color: transparent;
+      display: inline-block;
+      font-size: 100px;
+      border: none;
+      cursor: pointer;
       background-color: rgb(56, 56, 105);
+
+    }
+    #click-me {
+      margin-top: 25PX;
       border-radius:100px;
       width:200px;
       height:200px;
-      border: none;
       color: white;
-      text-align: center;
       text-decoration: none;
       display: inline-block;
       font-size: 100px;
@@ -48,48 +51,83 @@
       margin-top: 20px;
     
     }
+    #plus{
+      height: 50px;
+      width: 105px;
+      font-size: 20px;
+    }#avto{
+      height: 50px;
+      width: 105px;
+      font-size: 20px;
+    }
   </style>
+  <div>
+    <button id = "plus">+1</button>
+    <button id ="avto">auto</button>
+  </div>
 </head>
 <body>
-  <progress id="pr" value="0" max="500"></progress>
+  <progress id="pr" value="0" max="50"></progress>
   <button id="click-me">😀</button>
   <div id="counter">0</div>
   <script>
-    var count = 0;
+    var avtrue = false;
+    var click = 1;
     var count1 = 0;
-    var pr = document.getElementById("pr")
+    var cn = 0
+    var pl = document.getElementById("plus");
+    var cl = document.getElementById("avto");
+    var pr = document.getElementById("pr");
     var button = document.getElementById("click-me");
     var counter = document.getElementById("counter");
     button.addEventListener("click", function() {
-      count++;
-      count1++;
+      count1=count1 + click;
+      cn=cn+click;
       pr.value = count1;
-      counter.innerHTML = count;
+      counter.innerHTML = cn;
       if (pr.value >= 50){
         pr.value = 0;
         count1 = 0
       }
-      if(count ==50){
+      if(cn >50){
 
-        button.innerHTML = "😜"
+        button.innerHTML = "😋"
       }
-      if(count ==100){
+      if(cn >100){
 
-        button.innerHTML = "🤏"
+        button.innerHTML = "😎"
       }
-      if(count ==150){
+      if(cn >150){
 
         button.innerHTML = "🤑"
       }
-      if(count ==200){
+      if(cn >200){
 
         button.innerHTML = "🤯"
       }
-      if(count ==500){
-	      
-	button.innerHTML = "🙄"
-      }
     });
+    pl.addEventListener("click",function(){
+        if(cn > 150){
+            click++;
+            cn = cn-150;
+            counter.innerHTML = cn
+        }
+        
+    });
+    cl.addEventListener("click",function(){
+        if(cn > 450&& avtrue != true){
+            avtrue = true
+            cn = cn - 450;
+        }
+    })
+    let lop = setInterval(function(){
+        if (avtrue == true){
+            cn++;
+            count1++;
+            counter.innerHTML = cn;
+            pt.value = count1
+        }
+    },1000)
   </script>
 </body>
 </html>
