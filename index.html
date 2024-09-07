@@ -84,7 +84,7 @@
   <div id="counter">0</div>
   
   <script>
-    
+    var i = 0
     var avtrue = 0;
     var click = 1;
     var count1 = 0;
@@ -103,12 +103,15 @@
       if (r) return r[2];
       else return "";
     }
-    if (document.cookie != ""){
+    if (document.cookie != ""&& i != 1){
     cn = Number(getCookie("cn"));
     count1 = Number(getCookie("count1"));
     button.innerHTML = getCookie("but");
-    click = Number(getCookie("click"))
-    avtrue = Number(getCookie("AV"))  }
+    click = Number(getCookie("click"));
+    avtrue = Number(getCookie("AV"));
+      i = 1
+    }
+    
     button.addEventListener("click", function() {
       count1=count1 + click;
       cn=cn+click;
