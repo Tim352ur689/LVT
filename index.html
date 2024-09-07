@@ -82,8 +82,10 @@
   <progress id="pr" value="0" max="50"></progress>
   <button id="click-me">😀</button>
   <div id="counter">0</div>
+  
   <script>
-    var avtrue = false;
+    
+    var avtrue = 0;
     var click = 1;
     var count1 = 0;
     var cn = 0
@@ -92,11 +94,29 @@
     var pr = document.getElementById("pr");
     var button = document.getElementById("click-me");
     var counter = document.getElementById("counter");
+    function setCookie(name, value) {
+      document.cookie = name + "=" + value;
+
+    }
+    function getCookie(name) {
+      var r = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+      if (r) return r[2];
+      else return "";
+    }
+    cn = Number(getCookie("cn"));
+    count1 = Number(getCookie("count1"));
+    button.innerHTML = getCookie("but");
+    click = Number(getCookie("click"))
+    avtrue = Number(getCookie("AV"))  
     button.addEventListener("click", function() {
       count1=count1 + click;
       cn=cn+click;
       pr.value = count1;
       counter.innerHTML = cn;
+      setCookie("count1",count1)
+      setCookie("cn",cn)
+
+
       if (button.classList != "push"){
           button.classList.add("push")
       }
@@ -110,18 +130,22 @@
       if(cn >50){
 
         button.innerHTML = "😋"
+        setCookie("but",button.innerHTML)
       }
       if(cn >100){
 
         button.innerHTML = "😎"
+        setCookie("but",button.innerHTML)
       }
       if(cn >150){
 
         button.innerHTML = "🤑"
+        setCookie("but",button.innerHTML)
       }
       if(cn >200){
 
         button.innerHTML = "🤯"
+        setCookie("but",button.innerHTML)
       }
     });
     pl.addEventListener("click",function(){
@@ -129,23 +153,27 @@
             click++;
             cn = cn-150;
             counter.innerHTML = cn
+            setCookie("click",click)
         }
         
     });
     cl.addEventListener("click",function(){
-        if(cn > 450&& avtrue != true){
-            avtrue = true
+        if(cn > 450&& avtrue != 1){
+            avtrue = 1
             cn = cn - 450;
+            setCookie("AV",avtrue)
         }
     })
     let lop = setInterval(function(){
-        if (avtrue == true){
+        if (avtrue == 1){
             cn++;
             count1++;
             counter.innerHTML = cn;
             pr.value = count1
+            setCookie("count1",count1)
+      setCookie("cn",cn)
         }
     },1000)
   </script>
 </body>
-</html
+</html>
