@@ -103,11 +103,12 @@
       if (r) return r[2];
       else return "";
     }
+    if (document.cookie != ""){
     cn = Number(getCookie("cn"));
     count1 = Number(getCookie("count1"));
     button.innerHTML = getCookie("but");
     click = Number(getCookie("click"))
-    avtrue = Number(getCookie("AV"))  
+    avtrue = Number(getCookie("AV"))  }
     button.addEventListener("click", function() {
       count1=count1 + click;
       cn=cn+click;
