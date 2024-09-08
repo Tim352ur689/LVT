@@ -110,17 +110,6 @@
       date.setTime(date.getTime() - 1); 
       document.cookie = name += "=; expires=" + date.toGMTString(); 
   }
-    if (document.cookie != ""){
-    count1 = Number(getCookie("count1"));
-    cn = Number(getCookie("cn");
-    click = Number(getCookie("click"));
-    avtrue = Number(getCookie("AV"));
-      deleteCookie("cn");
-      deleteCookie("count1");
-
-      deleteCookie("click");
-      deleteCookie("Av");
-    }
     
     button.addEventListener("click", function() {
 
