@@ -123,12 +123,16 @@
       cn=cn+click;
       pr.value = count1;
       counter.innerHTML = cn;
-            deleteCookie("cn");
+
+
+    if (document.cookie != ""){
+
+      deleteCookie("cn");
       deleteCookie("count1");
 
       deleteCookie("click");
       deleteCookie("Av");
-
+    }
       setCookie("count1",count1);
       setCookie("cn",cn);
     
