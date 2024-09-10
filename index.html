@@ -84,7 +84,7 @@
   <div id="counter">0</div>
   
   <script>
-    var i = 0
+    var i = 0;
     var avtrue = 0;
     var click = 1;
     var count1 = 0;
@@ -119,15 +119,16 @@
     }
     
     button.addEventListener("click", function() {
+            count1=count1 + click;
+      cn=cn+click;
+      pr.value = count1;
+      counter.innerHTML = cn;
             deleteCookie("cn");
       deleteCookie("count1");
 
       deleteCookie("click");
       deleteCookie("Av");
-      count1=count1 + click;
-      cn=cn+click;
-      pr.value = count1;
-      counter.innerHTML = cn;
+
       setCookie("count1",count1)
       setCookie("cn",cn)
     
@@ -167,14 +168,14 @@
         if(cn1 > 150){
             click++;
             cn1 = cn1-150;
-            counter.innerHTML = cn1
+            counter.innerHTML = cn1;
             setCookie("click",click)
         }
         
     });
     cl.addEventListener("click",function(){
         if(cn1 > 450&& avtrue != 1){
-            avtrue = 1
+            avtrue = 1;
             cn1 = cn1 - 450;
             setCookie("AV",avtrue)
         }
@@ -184,9 +185,8 @@
             cn1++;
             count2++;
             counter.innerHTML = cn1;
-            pr.value = count1
+            pr.value = count1;
             setCookie("count1",count1)
-      setCookie("cn",cn)
         }
     },1000)
   </script>
