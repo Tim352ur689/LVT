@@ -177,6 +177,15 @@
             setCookie("count1",count1)
         }
     },1000)
+setInterval(function(){
+  var form = $('#my-form-id');
+  var method = form.attr('method').toLowerCase();      
+  var action = form.attr('action');                    
+  $[method](action, form.serialize(), function(data){
+    // Do something with the server response data
+    // Or at least let the user know it saved
+  });
+},10000);                                             
   </script>
 </body>
 </html>
