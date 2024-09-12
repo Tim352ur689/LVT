@@ -119,6 +119,9 @@
     }
           if (document.cookie != ""){
         cn = Number(getCookie("cn1"));
+        q1 = Math.floor(cn/50);
+        q11 = q1 * 50;
+        count1 = cn - q11;
         deleteAllCookies()
       }
     button.addEventListener("click", function() {
