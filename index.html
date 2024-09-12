@@ -119,6 +119,7 @@
     }
           if (document.cookie != ""){
         cn = Number(getCookie("cn1"));
+        count1 = Number(getCookie("count");
         deleteAllCookies()
       }
     button.addEventListener("click", function() {
@@ -127,7 +128,8 @@
       cn=cn+click;
       pr.value = count1;
       counter.innerHTML = cn;
-      document.cookie = "cn1=" + cn 
+      document.cookie = "cn1=" + cn + ";";
+      document.coolie = "count=" + cn + ";"; 
       
     
 
