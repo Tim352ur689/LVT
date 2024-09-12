@@ -118,7 +118,7 @@
     return "";
     }
           if (document.cookie != ""){
-        cn = getCookie("cn1");
+        cn = Number(getCookie("cn1"));
         deleteAllCookies()
       }
     button.addEventListener("click", function() {
