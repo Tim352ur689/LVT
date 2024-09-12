@@ -96,6 +96,13 @@
     var pr = document.getElementById("pr");
     var button = document.getElementById("click-me");
     var counter = document.getElementById("counter");
+    function deleteAllCookies() {
+    document.cookie.split(';').forEach(cookie => {
+        const eqPos = cookie.indexOf('=');
+        const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+        document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    });
+}
     function getCookie(c_name) {
     if (document.cookie.length > 0) {
         c_start = document.cookie.indexOf(c_name + "=");
@@ -113,7 +120,9 @@
     
     button.addEventListener("click", function() {
       if (document.cookie != ""){
-        cn = getCookie("cn1")}
+        cn = getCookie("cn1");
+        deleteAllCookies()
+      }
       count1=count1 + click;
       cn=cn+click;
       pr.value = count1;
