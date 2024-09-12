@@ -117,12 +117,12 @@
     }
     return "";
     }
-    
-    button.addEventListener("click", function() {
-      if (document.cookie != ""){
+          if (document.cookie != ""){
         cn = getCookie("cn1");
         deleteAllCookies()
       }
+    button.addEventListener("click", function() {
+
       count1=count1 + click;
       cn=cn+click;
       pr.value = count1;
@@ -162,26 +162,26 @@
       }
     });
     pl.addEventListener("click",function(){
-        if(cn1 > 150){
+        if(cn > 150){
             click++;
-            cn1 = cn1-150;
-            counter.innerHTML = cn1;
+            cn = cn-150;
+            counter.innerHTML = cn;
 
         }
         
     });
     cl.addEventListener("click",function(){
-        if(cn1 > 450&& avtrue != 1){
+        if(cn > 450&& avtrue != 1){
             avtrue = 1;
-            cn1 = cn1 - 450;
+            cn = cn - 450;
 
         }
     })
     let lop = setInterval(function(){
         if (avtrue == 1){
-            cn1++;
+            cn++;
             count2++;
-            counter.innerHTML = cn1;
+            counter.innerHTML = cn;
             pr.value = count1;
 
         }
