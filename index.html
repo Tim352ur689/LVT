@@ -96,24 +96,10 @@
     var pr = document.getElementById("pr");
     var button = document.getElementById("click-me");
     var counter = document.getElementById("counter");
-    function setCookie(name, value) {
-      document.cookie = name + "=" + value;
-
-    }
-    function getCookie(name) {
-      var r = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
-      if (r) return r[2];
-      else return "";
-    }
-    function deleteCookie(name) {
-      var date = new Date();
-      date.setTime(date.getTime() - 1); 
-      document.cookie = name += "=; expires=" + date.toGMTString(); 
-  }
 
     
     button.addEventListener("click", function() {
-            count1=count1 + click;
+      count1=count1 + click;
       cn=cn+click;
       pr.value = count1;
       counter.innerHTML = cn;
@@ -129,27 +115,26 @@
       },300)
       if (pr.value >= 50){
         pr.value = 0;
-        count2 = 0
+        count1 = 0
       }
-      if(cn1 >50){
+      if(cn >50){
 
         button.innerHTML = "😋";
-        setCookie("but",button.innerHTML)
+
       }
-      if(cn1 >100){
+      if(cn >100){
 
         button.innerHTML = "😎";
-        setCookie("but",button.innerHTML)
+
       }
-      if(cn1 >150){
+      if(cn >150){
 
         button.innerHTML = "🤑";
-        setCookie("but",button.innerHTML)
       }
-      if(cn1 >200){
+      if(cn >200){
 
         button.innerHTML = "🤯";
-        setCookie("but",button.innerHTML)
+
       }
     });
     pl.addEventListener("click",function(){
@@ -157,7 +142,7 @@
             click++;
             cn1 = cn1-150;
             counter.innerHTML = cn1;
-            setCookie("click",click)
+
         }
         
     });
@@ -165,7 +150,7 @@
         if(cn1 > 450&& avtrue != 1){
             avtrue = 1;
             cn1 = cn1 - 450;
-            setCookie("AV",avtrue)
+
         }
     })
     let lop = setInterval(function(){
@@ -174,7 +159,7 @@
             count2++;
             counter.innerHTML = cn1;
             pr.value = count1;
-            setCookie("count1",count1)
+
         }
     },1000)
   </script>
