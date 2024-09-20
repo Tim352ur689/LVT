@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,6 +63,15 @@
             50% { font-size: 75px; }
             80% { font-size: 100px; }
         }
+
+        #upgrade {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        #upgrade button {
+            width: 150px;
+        }
     </style>
 </head>
 <body>
@@ -73,6 +83,12 @@
     <button id="click-me">😀</button>
     <div id="counter">0</div>
 
+    <div id="upgrade">
+        <h2>Прокачка кликера</h2>
+        <button id="upgrade-click">Улучшить клик (+1 к клику за 100)</button>
+        <div id="upgrade-info">Уровень клика: 1</div>
+    </div>
+
     <script>
         let click = 1;
         let count1 = 0;
@@ -83,6 +99,8 @@
         const pr = document.getElementById("pr");
         const button = document.getElementById("click-me");
         const counter = document.getElementById("counter");
+        const upgradeButton = document.getElementById("upgrade-click");
+        const upgradeInfo = document.getElementById("upgrade-info");
 
         function deleteAllCookies() {
             document.cookie.split(';').forEach(cookie => {
@@ -125,6 +143,18 @@
             const emojis = ["😀", "😁", "😆", "😅", "😂", "🤣", "😊"];
             const emojiIndex = Math.min(Math.floor(cn / 50), emojis.length - 1);
             button.innerHTML = emojis[emojiIndex];
+        });
+
+        upgradeButton.addEventListener("click", function() {
+            if (cn >= 100) {
+                cn -= 100;
+                click += 1;
+                counter.innerHTML = cn;
+                upgradeInfo.innerHTML = `Уровень клика: ${click}`;
+                document.cookie = "cn1=" + cn;
+            } else {
+                alert("Недостаточно кликов для улучшения!");
+            }
         });
     </script>
 </body>
