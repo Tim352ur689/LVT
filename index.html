@@ -18,9 +18,7 @@
         Score: <span id="score">0</span>
     </div>
     <script src="script.js"></script>
-</body>
-</html>
-body {
+    body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,7 +40,6 @@ button {
     padding: 10px;
     font-size: 16px;
 }
-
 .score {
     margin-top: 20px;
     color: #fff;
@@ -162,10 +159,7 @@ function drawMatrix(matrix, offset) {
 function merge(arena, player) {
     player.matrix.forEach((row, y) => {
         row.forEach((value, x) => {
-            if (val
-
-> Федя:
-ue !== 0) {
+            if (value !== 0) {
                 arena[y + player.pos.y][x + player.pos.x] = value;
             }
         });
@@ -297,3 +291,5 @@ document.getElementById('rotate').addEventListener('click', () => {
 
 playerReset();
 update();
+</body>
+</html>
